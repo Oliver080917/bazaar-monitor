@@ -1,0 +1,14 @@
+# Render Blueprint — 一键部署配置
+# 使用方法：把仓库推到 GitHub 后，在 Render 选 "Blueprint" 导入，或手动新建 Web Service。
+services:
+  - type: web
+    name: skyblock-bazaar-monitor
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      # 在 Render 仪表盘的 Environment 里设置（sync: false 表示部署后需手动填值）
+      - key: HYPIXEL_API_KEY
+        sync: false

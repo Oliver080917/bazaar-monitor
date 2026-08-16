@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bazzar实时查看</title>
+  <link rel="stylesheet" href="styles.css?v=1007">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1"></script>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>🎮 Bazzar实时查看</h1>
+      <div class="header-actions">
+        <button id="refreshBtn" class="btn btn-primary">
+          <span class="btn-icon">🔄</span> 刷新
+        </button>
+        <button id="exportBtn" class="btn btn-secondary">
+          <span class="btn-icon">📥</span> 导出
+        </button>
+      </div>
+    </div>
+    <div class="status-bar">
+      <span id="statusText" class="status status-error">⚠️ API 密钥未配置</span>
+      <span id="lastUpdated" class="last-updated"></span>
+    </div>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="搜索物品..." autocomplete="off">
+      </div>
+
+      <div class="filters">
+        <h3>筛选</h3>
+        <label class="filter-option">
+          <input type="checkbox" id="showFavoritesOnly" />
+          <span>⭐ 仅显示收藏</span>
+        </label>
+      </div>
+
+      <div class="categories">
+        <h3>📦 分类</h3>
+        <ul id="categoryList">
+          <li class="category-item active" data-category="all"><span class="category-label">全部</span></li>
+          <li class="category-item" data-category="farming">
+            <span class="category-label"><span class="category-icon">🌾</span> Farming</span>
+            <ul class="subcategory-list" data-parent="farming" style="display: none;"></ul>
+          </li>
+          <li class="category-item" data-category="mining">
+            <span class="category-label"><span class="category-icon">⛏️</span> Mining</span>
+            <ul class="subcategory-list" data-parent="mining" style="display: none;"></ul>
+          </li>
+          <li class="category-item" data-category="combat">
+            <span class="category-label"><span class="category-icon">⚔️</span> Combat</span>
+            <ul class="subcategory-list" data-parent="combat" style="display: none;"></ul>
+          </li>
+          <li class="category-item" data-category="woods_fishes">
+            <span class="category-label"><span class="category-icon">🪵</span> Woods & Fishes</span>
+            <ul class="subcategory-list" data-parent="woods_fishes" style="display: none;"></ul>
+          </li>
+          <li class="category-item" data-category="oddities">
+            <span class="category-label"><span class="category-icon">🔮</span> Oddities</span>
+            <ul class="subcategory-list" data-parent="oddities" style="display: none;"></ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flips-list" id="flipsListSection">
+        <h3 class="flips-toggle" id="flipsToggle">
+          <span class="flips-caret">▸</span> 💰 倒卖机会 <span id="flipsCount" class="flips-count"></span>
+        </h3>
+        <ul id="flipsList" style="display: none;"></ul>
+      </div>
+
+      <div class="favorites-list">
+        <h3>⭐ 收藏夹</h3>
+        <ul id="favoritesList"></ul>
+      </div>
+    </aside>
+
+    <section class="content">
+      <div class="product-grid" id="productGrid">
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+          <p>正在加载 Bazzar 数据...</p>
+        </div>
+      </div>
+    </section>
+
+    <aside class="detail-panel" id="detailPanel">
+      <button class="close-btn" id="closeDetail">×</button>
+      <div id="productDetail">
+        <div class="detail-header">
+          <h2 id="detailName">选择一个物品</h2>
+          <button id="favoriteBtn" class="btn btn-icon-only" title="添加到收藏">
+            ⭐
+          </button>
+        </div>
+
+        <div class="price-cards">
+          <div class="price-card buy">
+            <span class="label">买入价格</span>
+            <span class="price" id="detailBuyPrice">-</span>
+            <span class="orders" id="detailBuyOrders">- 订单</span>
+          </div>
+          <div class="price-card sell">
+            <span class="label">卖出价格</span>
+            <span class="price" id="detailSellPrice">-</span>
+            <span class="orders" id="detailSellOrders">- 订单</span>
+          </div>
+        </div>
+
+        <div class="volume-info">
+          <div>
+            <span class="label">买入量</span>
+            <span class="value" id="detailBuyVolume">-</span>
+          </div>
+          <div>
+            <span class="label">卖出量</span>
+            <span class="value" id="detailSellVolume">-</span>
+          </div>
+        </div>
+
+        <div class="npc-info" id="npcInfo">
+          <span class="label">🏪 NPC 购买价</span>
+          <span class="value" id="detailNpcPrice">-</span>
+          <span class="hint" id="npcHint"></span>
+        </div>
+
+        <div class="chart-container">
+          <h3>价格历史</h3>
+          <canvas id="priceChart"></canvas>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Export Modal -->
+  <div class="modal" id="exportModal">
+    <div class="modal-content">
+      <h2>导出数据</h2>
+      <p>选择导出格式：</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" id="exportJson">JSON</button>
+        <button class="btn btn-secondary" id="exportCsv">CSV</button>
+        <button class="btn btn-ghost" id="cancelExport">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=1008"></script>
+</body>
+</html>

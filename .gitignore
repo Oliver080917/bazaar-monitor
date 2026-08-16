@@ -1,0 +1,14 @@
+# Environment variables (contains sensitive API keys)
+.env
+.env.local
+
+# Dependencies
+node_modules/
+
+# Runtime data（npc-prices.json 保留，是启动必需的数据）
+data/favorites.json
+data/history.json
+server.log
+
+# Optional: ignore package-lock if you prefer yarn
+# package-lock.json

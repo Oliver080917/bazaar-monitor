@@ -1,0 +1,1662 @@
+{
+  "ROTTEN_FLESH": {
+    "perUnit": 8,
+    "npc": "ADVENTURER"
+  },
+  "BONE": {
+    "perUnit": 8,
+    "npc": "ADVENTURER"
+  },
+  "STRING": {
+    "perUnit": 10,
+    "npc": "ADVENTURER"
+  },
+  "SLIME_BALL": {
+    "perUnit": 14,
+    "npc": "ADVENTURER"
+  },
+  "SULPHUR": {
+    "perUnit": 10,
+    "npc": "ADVENTURER"
+  },
+  "ZOMBIE_TALISMAN": {
+    "perUnit": 500,
+    "npc": "ADVENTURER"
+  },
+  "SKELETON_TALISMAN": {
+    "perUnit": 500,
+    "npc": "ADVENTURER"
+  },
+  "VILLAGE_TALISMAN": {
+    "perUnit": 2500,
+    "npc": "ADVENTURER"
+  },
+  "MINE_TALISMAN": {
+    "perUnit": 2500,
+    "npc": "ADVENTURER"
+  },
+  "INTIMIDATION_TALISMAN": {
+    "perUnit": 10000,
+    "npc": "ADVENTURER"
+  },
+  "SCAVENGER_TALISMAN": {
+    "perUnit": 10000,
+    "npc": "ADVENTURER"
+  },
+  "BEGINNER_COMBAT_SACK": {
+    "perUnit": 250,
+    "npc": "ADVENTURER"
+  },
+  "NETHER_STALK": {
+    "perUnit": 10,
+    "npc": "AN"
+  },
+  "BREWING_STAND_ITEM": {
+    "perUnit": 30,
+    "npc": "ALCHEMIST"
+  },
+  "GLASS_BOTTLE": {
+    "perUnit": 6.25,
+    "npc": "ALCHEMIST"
+  },
+  "POTION": {
+    "perUnit": 6,
+    "npc": "ALCHEMIST"
+  },
+  "SUGAR": {
+    "perUnit": 4,
+    "npc": "ALCHEMIST"
+  },
+  "RABBIT_FOOT": {
+    "perUnit": 10,
+    "npc": "ALCHEMIST"
+  },
+  "SPECKLED_MELON": {
+    "perUnit": 10,
+    "npc": "ALCHEMIST"
+  },
+  "SPIDER_EYE": {
+    "perUnit": 12,
+    "npc": "ALCHEMIST"
+  },
+  "BLAZE_POWDER": {
+    "perUnit": 12,
+    "npc": "ALCHEMIST"
+  },
+  "GHAST_TEAR": {
+    "perUnit": 200,
+    "npc": "ALCHEMIST"
+  },
+  "MAGMA_CREAM": {
+    "perUnit": 20,
+    "npc": "ALCHEMIST"
+  },
+  "GOLDEN_CARROT": {
+    "perUnit": 30,
+    "npc": "ALCHEMIST"
+  },
+  "ABIPHONE_BASIC": {
+    "perUnit": 5000,
+    "npc": "ALDA"
+  },
+  "SERIOUSLY_DAMAGED_AXE": {
+    "perUnit": 5000,
+    "npc": "AMAURY"
+  },
+  "DECENT_AXE": {
+    "perUnit": 1000000,
+    "npc": "AMAURY"
+  },
+  "CANOPY_HELMET": {
+    "perUnit": 116400,
+    "npc": "AMAURY"
+  },
+  "CANOPY_CHESTPLATE": {
+    "perUnit": 135800,
+    "npc": "AMAURY"
+  },
+  "CANOPY_LEGGINGS": {
+    "perUnit": 126100,
+    "npc": "AMAURY"
+  },
+  "CANOPY_BOOTS": {
+    "perUnit": 106700,
+    "npc": "AMAURY"
+  },
+  "SAND-1": {
+    "perUnit": 20,
+    "npc": "AN"
+  },
+  "BLAZE_ROD": {
+    "perUnit": 50,
+    "npc": "AN"
+  },
+  "QUARTZ": {
+    "perUnit": 50,
+    "npc": "AN"
+  },
+  "PARKOUR_CONTROLLER": {
+    "perUnit": 1000,
+    "npc": "AMELIA"
+  },
+  "PARKOUR_POINT": {
+    "perUnit": 1000,
+    "npc": "AMELIA"
+  },
+  "PARKOUR_TIMES": {
+    "perUnit": 2000,
+    "npc": "AMELIA"
+  },
+  "SOCIAL_DISPLAY": {
+    "perUnit": 10000,
+    "npc": "AMELIA"
+  },
+  "EGG_HUNT": {
+    "perUnit": 1000,
+    "npc": "AMELIA"
+  },
+  "ISLAND_NPC": {
+    "perUnit": 50000,
+    "npc": "AMELIA"
+  },
+  "TIC_TAC_TOE": {
+    "perUnit": 2500,
+    "npc": "AMELIA"
+  },
+  "CONNECT_FOUR": {
+    "perUnit": 2500,
+    "npc": "AMELIA"
+  },
+  "ROCK_PAPER_SHEARS": {
+    "perUnit": 10000,
+    "npc": "AMELIA"
+  },
+  "SHOWCASE_BLOCK": {
+    "perUnit": 50000,
+    "npc": "AMELIA"
+  },
+  "NEW_YEAR_CAKE_BAG": {
+    "perUnit": 250000,
+    "npc": "BAKER"
+  },
+  "THORNLEAF_SCYTHE": {
+    "perUnit": 100000,
+    "npc": "BARBARIAN_EMISSARY"
+  },
+  "CHEAP_COFFEE": {
+    "perUnit": 1000,
+    "npc": "BARTENDER"
+  },
+  "TEPID_GREEN_TEA": {
+    "perUnit": 1000,
+    "npc": "BARTENDER"
+  },
+  "PULPOUS_ORANGE_JUICE": {
+    "perUnit": 1000,
+    "npc": "BARTENDER"
+  },
+  "BITTER_ICE_TEA": {
+    "perUnit": 1200,
+    "npc": "BARTENDER"
+  },
+  "KNOCKOFF_COLA": {
+    "perUnit": 1500,
+    "npc": "BARTENDER"
+  },
+  "DECENT_COFFEE": {
+    "perUnit": 5000,
+    "npc": "BARTENDER"
+  },
+  "WOLF_FUR_MIXIN": {
+    "perUnit": 150000,
+    "npc": "BARTENDER"
+  },
+  "SPIDER_EGG_MIXIN": {
+    "perUnit": 150000,
+    "npc": "BARTENDER"
+  },
+  "ZOMBIE_BRAIN_MIXIN": {
+    "perUnit": 150000,
+    "npc": "BARTENDER"
+  },
+  "END_PORTAL_FUMES_MIXIN": {
+    "perUnit": 150000,
+    "npc": "BARTENDER"
+  },
+  "GABAGOEY_MIXIN": {
+    "perUnit": 150000,
+    "npc": "BARTENDER"
+  },
+  "SMALL_HONEY_DIPPER": {
+    "perUnit": 500,
+    "npc": "BEA"
+  },
+  "MEDIUM_HONEY_DIPPER": {
+    "perUnit": 5000,
+    "npc": "BEA"
+  },
+  "LARGE_HONEY_DIPPER": {
+    "perUnit": 50000,
+    "npc": "BEA"
+  },
+  "GIANT_HONEY_DIPPER": {
+    "perUnit": 500000,
+    "npc": "BEA"
+  },
+  "MINING_PUMPKIN": {
+    "perUnit": 50000,
+    "npc": "BRYNMOR"
+  },
+  "FILET_O_FORTUNE": {
+    "perUnit": 100000,
+    "npc": "BRYNMOR"
+  },
+  "CHILLED_PRISTINE_POTATO": {
+    "perUnit": 250000,
+    "npc": "BRYNMOR"
+  },
+  "FRACTURED_MITHRIL_PICKAXE": {
+    "perUnit": 10000,
+    "npc": "BUBU"
+  },
+  "BIOFUEL": {
+    "perUnit": 20000,
+    "npc": "BUBU"
+  },
+  "RUSTY_TITANIUM_PICKAXE": {
+    "perUnit": 50000,
+    "npc": "BUBU"
+  },
+  "SCARECROW": {
+    "perUnit": 120,
+    "npc": "CARPENTER"
+  },
+  "WEAPON_RACK": {
+    "perUnit": 100,
+    "npc": "CARPENTER"
+  },
+  "ARMOR_SHOWCASE": {
+    "perUnit": 100,
+    "npc": "CARPENTER"
+  },
+  "FANCY_FLOWER_POT": {
+    "perUnit": 150,
+    "npc": "CARPENTER"
+  },
+  "ENCHANTING_PLUS": {
+    "perUnit": 10000,
+    "npc": "CARPENTER"
+  },
+  "CRAFTING_PLUS": {
+    "perUnit": 10000,
+    "npc": "CARPENTER"
+  },
+  "FURNACE_PLUS": {
+    "perUnit": 15000,
+    "npc": "CARPENTER"
+  },
+  "WOOD_CHEST": {
+    "perUnit": 15000,
+    "npc": "CARPENTER"
+  },
+  "FIREPLACE": {
+    "perUnit": 10000,
+    "npc": "CARPENTER"
+  },
+  "CHEST_SHELVES": {
+    "perUnit": 15000,
+    "npc": "CARPENTER"
+  },
+  "MOODY_GRAPPLESHOT": {
+    "perUnit": 3700000,
+    "npc": "DESPERATE_ENGINEER"
+  },
+  "HUNTING_TOOLKIT": {
+    "perUnit": 1000000,
+    "npc": "DAVID_HUNTERBOROUGH"
+  },
+  "PET_ITEM_FARMING_SKILL_BOOST_EPIC": {
+    "perUnit": 1500000,
+    "npc": "DUNCAN"
+  },
+  "WHEAT": {
+    "perUnit": 2.33,
+    "npc": "FARM_MERCHANT"
+  },
+  "CARROT_ITEM": {
+    "perUnit": 2.33,
+    "npc": "FARM_MERCHANT"
+  },
+  "POTATO_ITEM": {
+    "perUnit": 2.33,
+    "npc": "FARM_MERCHANT"
+  },
+  "MELON": {
+    "perUnit": 2,
+    "npc": "FARM_MERCHANT"
+  },
+  "SUGAR_CANE": {
+    "perUnit": 5,
+    "npc": "FARM_MERCHANT"
+  },
+  "PUMPKIN": {
+    "perUnit": 8,
+    "npc": "FARM_MERCHANT"
+  },
+  "COCOA": {
+    "perUnit": 7,
+    "npc": "FARM_MERCHANT"
+  },
+  "RED_MUSHROOM": {
+    "perUnit": 12,
+    "npc": "FARM_MERCHANT"
+  },
+  "BROWN_MUSHROOM": {
+    "perUnit": 12,
+    "npc": "FARM_MERCHANT"
+  },
+  "SAND": {
+    "perUnit": 4,
+    "npc": "FARM_MERCHANT"
+  },
+  "CACTUS": {
+    "perUnit": 10,
+    "npc": "FARM_MERCHANT"
+  },
+  "ENCHANTED_BONE_MEAL": {
+    "perUnit": 6,
+    "npc": "FARM_MERCHANT"
+  },
+  "ROOKIE_HOE": {
+    "perUnit": 10,
+    "npc": "FARM_MERCHANT"
+  },
+  "HOT_CHOCOLATE": {
+    "perUnit": 70000,
+    "npc": "EZEKIEL"
+  },
+  "BLACK_COFFEE": {
+    "perUnit": 50000,
+    "npc": "EZEKIEL"
+  },
+  "FISHING_ROD": {
+    "perUnit": 50,
+    "npc": "FISH_MERCHANT"
+  },
+  "DIAMOND_SWORD": {
+    "perUnit": 50,
+    "npc": "FISH_MERCHANT"
+  },
+  "MINNOW_BAIT": {
+    "perUnit": 15,
+    "npc": "FISH_MERCHANT"
+  },
+  "ANGLER_HELMET": {
+    "perUnit": 100,
+    "npc": "FISH_MERCHANT"
+  },
+  "ANGLER_CHESTPLATE": {
+    "perUnit": 100,
+    "npc": "FISH_MERCHANT"
+  },
+  "ANGLER_LEGGINGS": {
+    "perUnit": 100,
+    "npc": "FISH_MERCHANT"
+  },
+  "ANGLER_BOOTS": {
+    "perUnit": 100,
+    "npc": "FISH_MERCHANT"
+  },
+  "ANGLER_NECKLACE": {
+    "perUnit": 100,
+    "npc": "FISH_MERCHANT"
+  },
+  "ANGLER_CLOAK": {
+    "perUnit": 100,
+    "npc": "FISH_MERCHANT"
+  },
+  "ANGLER_BRACELET": {
+    "perUnit": 100,
+    "npc": "FISH_MERCHANT"
+  },
+  "ANGLER_BELT": {
+    "perUnit": 100,
+    "npc": "FISH_MERCHANT"
+  },
+  "RAW_FISH": {
+    "perUnit": 10,
+    "npc": "FISHING_MERCHANT"
+  },
+  "GOLD_INGOT": {
+    "perUnit": 5.5,
+    "npc": "GOLD_FORGER"
+  },
+  "GOLD_HELMET": {
+    "perUnit": 10,
+    "npc": "GOLD_FORGER"
+  },
+  "GOLD_CHESTPLATE": {
+    "perUnit": 16,
+    "npc": "GOLD_FORGER"
+  },
+  "GOLD_LEGGINGS": {
+    "perUnit": 14,
+    "npc": "GOLD_FORGER"
+  },
+  "GOLD_BOOTS": {
+    "perUnit": 9,
+    "npc": "GOLD_FORGER"
+  },
+  "FANCY_SWORD": {
+    "perUnit": 80,
+    "npc": "GOLD_FORGER"
+  },
+  "GOLD_SPADE": {
+    "perUnit": 10,
+    "npc": "GOLD_FORGER"
+  },
+  "GOLD_PICKAXE": {
+    "perUnit": 10,
+    "npc": "GOLD_FORGER"
+  },
+  "GOLD_AXE": {
+    "perUnit": 10,
+    "npc": "GOLD_FORGER"
+  },
+  "ARROW": {
+    "perUnit": 5,
+    "npc": "JAX"
+  },
+  "DECENT_BOW": {
+    "perUnit": 500,
+    "npc": "GREGORY"
+  },
+  "SCORNCLAW_BREW": {
+    "perUnit": 2000,
+    "npc": "GROG"
+  },
+  "HUB_WIZARD_TOWER_TRAVEL_SCROLL": {
+    "perUnit": 11111,
+    "npc": "GRUMBLEFOOT"
+  },
+  "IRON_INGOT": {
+    "perUnit": 5.5,
+    "npc": "IRON_FORGER"
+  },
+  "CHAINMAIL_HELMET": {
+    "perUnit": 10,
+    "npc": "IRON_FORGER"
+  },
+  "CHAINMAIL_CHESTPLATE": {
+    "perUnit": 16,
+    "npc": "IRON_FORGER"
+  },
+  "CHAINMAIL_LEGGINGS": {
+    "perUnit": 14,
+    "npc": "IRON_FORGER"
+  },
+  "CHAINMAIL_BOOTS": {
+    "perUnit": 9,
+    "npc": "IRON_FORGER"
+  },
+  "IRON_PICKAXE": {
+    "perUnit": 60,
+    "npc": "IRON_FORGER"
+  },
+  "ARROW_SWAPPER": {
+    "perUnit": 1000,
+    "npc": "JAX"
+  },
+  "JUNK_SINKER": {
+    "perUnit": 9700,
+    "npc": "JUNKER_JOEL"
+  },
+  "VIKING_TEAR": {
+    "perUnit": 15000,
+    "npc": "JOYFUL_VIKING"
+  },
+  "PARK_JUNGLE_TRAVEL_SCROLL": {
+    "perUnit": 70000,
+    "npc": "JOYFUL_VIKING"
+  },
+  "RAIDER_AXE": {
+    "perUnit": 130000,
+    "npc": "JOYFUL_VIKING"
+  },
+  "HARDENED_WOOD": {
+    "perUnit": 15000,
+    "npc": "JAKE"
+  },
+  "LUCKY_DICE": {
+    "perUnit": 1000000,
+    "npc": "JAKE"
+  },
+  "EXP_BOTTLE": {
+    "perUnit": 30,
+    "npc": "LIBRARIAN"
+  },
+  "BOOK": {
+    "perUnit": 20,
+    "npc": "LIBRARIAN"
+  },
+  "LOG": {
+    "perUnit": 25,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "LOG-2": {
+    "perUnit": 25,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "LOG-1": {
+    "perUnit": 25,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "LOG_2-1": {
+    "perUnit": 25,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "LOG_2": {
+    "perUnit": 25,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "LOG-3": {
+    "perUnit": 25,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "ROOKIE_AXE": {
+    "perUnit": 12,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "PROMISING_AXE": {
+    "perUnit": 35,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "DIRT-2": {
+    "perUnit": 25,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "SWEET_AXE": {
+    "perUnit": 100,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "EFFICIENT_AXE": {
+    "perUnit": 100,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "WOOD_SWORD": {
+    "perUnit": 5,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "WOOD_PICKAXE": {
+    "perUnit": 5,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "WOOD_SPADE": {
+    "perUnit": 5,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "WOOD_HOE": {
+    "perUnit": 5,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "WOOD_AXE": {
+    "perUnit": 5,
+    "npc": "LUMBER_MERCHANT"
+  },
+  "SHADY_RING": {
+    "perUnit": 500000,
+    "npc": "LUCIUS"
+  },
+  "TORCH": {
+    "perUnit": 0.5,
+    "npc": "LUMINA"
+  },
+  "LANTERN": {
+    "perUnit": 10000,
+    "npc": "LUMINA"
+  },
+  "INFINI_TORCH": {
+    "perUnit": 100000,
+    "npc": "LUMINA"
+  },
+  "HUB_CASTLE_TRAVEL_SCROLL": {
+    "perUnit": 150000,
+    "npc": "LONELY_PHILOSOPHER"
+  },
+  "LAMP_BLACK": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_GRAY": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_LIGHT_GRAY": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_WHITE": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_BROWN": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_ORANGE": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_RED": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_YELLOW": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_PURPLE": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_MAGENTA": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_LILAC": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_PINK": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_GREEN": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_LIME": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_BLUE": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_CYAN": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_LIGHT_BLUE": {
+    "perUnit": 150000,
+    "npc": "LYS"
+  },
+  "LAMP_RAINBOW": {
+    "perUnit": 250000,
+    "npc": "LYS"
+  },
+  "REDSTONE_TORCH_ON": {
+    "perUnit": 2,
+    "npc": "MAD_REDSTONE_ENGINEER"
+  },
+  "REDSTONE": {
+    "perUnit": 4,
+    "npc": "MAD_REDSTONE_ENGINEER"
+  },
+  "DAYLIGHT_DETECTOR": {
+    "perUnit": 18,
+    "npc": "MAD_REDSTONE_ENGINEER"
+  },
+  "WOOD_PLATE": {
+    "perUnit": 2,
+    "npc": "MAD_REDSTONE_ENGINEER"
+  },
+  "STONE_PLATE": {
+    "perUnit": 4,
+    "npc": "MAD_REDSTONE_ENGINEER"
+  },
+  "IRON_PLATE": {
+    "perUnit": 12,
+    "npc": "MAD_REDSTONE_ENGINEER"
+  },
+  "GOLD_PLATE": {
+    "perUnit": 16,
+    "npc": "MAD_REDSTONE_ENGINEER"
+  },
+  "LEVER": {
+    "perUnit": 2,
+    "npc": "MAD_REDSTONE_ENGINEER"
+  },
+  "REDSTONE_COMPARATOR": {
+    "perUnit": 10,
+    "npc": "MAD_REDSTONE_ENGINEER"
+  },
+  "DIODE": {
+    "perUnit": 6,
+    "npc": "MAD_REDSTONE_ENGINEER"
+  },
+  "TRIPWIRE_HOOK": {
+    "perUnit": 4,
+    "npc": "MAD_REDSTONE_ENGINEER"
+  },
+  "TNT": {
+    "perUnit": 50,
+    "npc": "MAD_REDSTONE_ENGINEER"
+  },
+  "HOPPER": {
+    "perUnit": 50,
+    "npc": "MAD_REDSTONE_ENGINEER"
+  },
+  "TACTICIAN_SWORD": {
+    "perUnit": 35000,
+    "npc": "MASTER_TACTICIAN"
+  },
+  "SPORE_HARVESTER": {
+    "perUnit": 95000,
+    "npc": "MAGE_EMISSARY"
+  },
+  "GRAND_EXP_BOTTLE": {
+    "perUnit": 4750,
+    "npc": "MAGE_EMISSARY"
+  },
+  "TITANIC_EXP_BOTTLE": {
+    "perUnit": 712500,
+    "npc": "MAGE_EMISSARY"
+  },
+  "COAL": {
+    "perUnit": 4,
+    "npc": "MINE_MERCHANT"
+  },
+  "ROOKIE_PICKAXE": {
+    "perUnit": 12,
+    "npc": "MINE_MERCHANT"
+  },
+  "PROMISING_PICKAXE": {
+    "perUnit": 35,
+    "npc": "MINE_MERCHANT"
+  },
+  "GRAVEL": {
+    "perUnit": 4.33,
+    "npc": "PAT"
+  },
+  "COBBLESTONE": {
+    "perUnit": 3,
+    "npc": "MINE_MERCHANT"
+  },
+  "STONE": {
+    "perUnit": 2,
+    "npc": "MINE_MERCHANT"
+  },
+  "ONYX": {
+    "perUnit": 100,
+    "npc": "MINE_MERCHANT"
+  },
+  "SNORKELING_HELMET": {
+    "perUnit": 48500,
+    "npc": "NEMO"
+  },
+  "SNORKELING_CHESTPLATE": {
+    "perUnit": 77600,
+    "npc": "NEMO"
+  },
+  "SNORKELING_LEGGINGS": {
+    "perUnit": 67900,
+    "npc": "NEMO"
+  },
+  "SNORKELING_BOOTS": {
+    "perUnit": 38800,
+    "npc": "NEMO"
+  },
+  "ODGERS_BRONZE_TOOTH": {
+    "perUnit": 100000,
+    "npc": "ODGER"
+  },
+  "BRONZE_HUNTER_HELMET": {
+    "perUnit": 100000,
+    "npc": "ODGER"
+  },
+  "BRONZE_HUNTER_CHESTPLATE": {
+    "perUnit": 100000,
+    "npc": "ODGER"
+  },
+  "BRONZE_HUNTER_LEGGINGS": {
+    "perUnit": 100000,
+    "npc": "ODGER"
+  },
+  "BRONZE_HUNTER_BOOTS": {
+    "perUnit": 100000,
+    "npc": "ODGER"
+  },
+  "STARTER_LAVA_ROD": {
+    "perUnit": 10000,
+    "npc": "ODGER"
+  },
+  "ODGERS_SILVER_TOOTH": {
+    "perUnit": 500000,
+    "npc": "ODGER"
+  },
+  "SILVER_HUNTER_HELMET": {
+    "perUnit": 500000,
+    "npc": "ODGER"
+  },
+  "SILVER_HUNTER_CHESTPLATE": {
+    "perUnit": 500000,
+    "npc": "ODGER"
+  },
+  "SILVER_HUNTER_LEGGINGS": {
+    "perUnit": 500000,
+    "npc": "ODGER"
+  },
+  "SILVER_HUNTER_BOOTS": {
+    "perUnit": 500000,
+    "npc": "ODGER"
+  },
+  "BRONZE_TROPHY_FISHING_SACK": {
+    "perUnit": 1000000,
+    "npc": "ODGER"
+  },
+  "ODGERS_GOLD_TOOTH": {
+    "perUnit": 1000000,
+    "npc": "ODGER"
+  },
+  "GOLD_HUNTER_HELMET": {
+    "perUnit": 1000000,
+    "npc": "ODGER"
+  },
+  "GOLD_HUNTER_CHESTPLATE": {
+    "perUnit": 1000000,
+    "npc": "ODGER"
+  },
+  "GOLD_HUNTER_LEGGINGS": {
+    "perUnit": 1000000,
+    "npc": "ODGER"
+  },
+  "GOLD_HUNTER_BOOTS": {
+    "perUnit": 1000000,
+    "npc": "ODGER"
+  },
+  "SILVER_TROPHY_FISHING_SACK": {
+    "perUnit": 5000000,
+    "npc": "ODGER"
+  },
+  "ODGERS_DIAMOND_TOOTH": {
+    "perUnit": 2500000,
+    "npc": "ODGER"
+  },
+  "DIAMOND_HUNTER_HELMET": {
+    "perUnit": 2500000,
+    "npc": "ODGER"
+  },
+  "DIAMOND_HUNTER_CHESTPLATE": {
+    "perUnit": 2500000,
+    "npc": "ODGER"
+  },
+  "DIAMOND_HUNTER_LEGGINGS": {
+    "perUnit": 2500000,
+    "npc": "ODGER"
+  },
+  "DIAMOND_HUNTER_BOOTS": {
+    "perUnit": 2500000,
+    "npc": "ODGER"
+  },
+  "UNDEAD_BOW": {
+    "perUnit": 80000,
+    "npc": "OPHELIA"
+  },
+  "DARK_GOGGLES": {
+    "perUnit": 80000,
+    "npc": "OPHELIA"
+  },
+  "MENDER_HELMET": {
+    "perUnit": 80000,
+    "npc": "OPHELIA"
+  },
+  "SUPERBOOM_TNT": {
+    "perUnit": 2500,
+    "npc": "WALTER"
+  },
+  "STONE_CHESTPLATE": {
+    "perUnit": 80000,
+    "npc": "OPHELIA"
+  },
+  "ENDER_STONE": {
+    "perUnit": 10,
+    "npc": "PEARL_DEALER"
+  },
+  "OBSIDIAN": {
+    "perUnit": 50,
+    "npc": "PEARL_DEALER"
+  },
+  "SILENT_PEARL": {
+    "perUnit": 1250,
+    "npc": "PEARL_DEALER"
+  },
+  "REMNANT_OF_THE_EYE": {
+    "perUnit": 200000,
+    "npc": "PEARL_DEALER"
+  },
+  "STONK_PICKAXE": {
+    "perUnit": 499999,
+    "npc": "PEARL_DEALER"
+  },
+  "FLINT": {
+    "perUnit": 6,
+    "npc": "PAT"
+  },
+  "SHINY_ORB": {
+    "perUnit": 5000,
+    "npc": "PIG_SHOP"
+  },
+  "TRUE_ESSENCE": {
+    "perUnit": 25000,
+    "npc": "OLD_SHAMAN_NYKO"
+  },
+  "PLUMBER_SPONGE": {
+    "perUnit": 50,
+    "npc": "PLUMBER_JOE"
+  },
+  "SUPER_SCRUBBER": {
+    "perUnit": 25000,
+    "npc": "PLUMBER_JOE"
+  },
+  "IRON_HELMET": {
+    "perUnit": 15,
+    "npc": "ROSETTA"
+  },
+  "IRON_CHESTPLATE": {
+    "perUnit": 25,
+    "npc": "ROSETTA"
+  },
+  "IRON_LEGGINGS": {
+    "perUnit": 30,
+    "npc": "ROSETTA"
+  },
+  "IRON_BOOTS": {
+    "perUnit": 20,
+    "npc": "ROSETTA"
+  },
+  "ROSETTA_HELMET": {
+    "perUnit": 1050,
+    "npc": "ROSETTA"
+  },
+  "ROSETTA_CHESTPLATE": {
+    "perUnit": 1320,
+    "npc": "ROSETTA"
+  },
+  "ROSETTA_LEGGINGS": {
+    "perUnit": 1200,
+    "npc": "ROSETTA"
+  },
+  "ROSETTA_BOOTS": {
+    "perUnit": 960,
+    "npc": "ROSETTA"
+  },
+  "SQUIRE_HELMET": {
+    "perUnit": 5000,
+    "npc": "ROSETTA"
+  },
+  "SQUIRE_CHESTPLATE": {
+    "perUnit": 8000,
+    "npc": "ROSETTA"
+  },
+  "SQUIRE_LEGGINGS": {
+    "perUnit": 7000,
+    "npc": "ROSETTA"
+  },
+  "SQUIRE_BOOTS": {
+    "perUnit": 4000,
+    "npc": "ROSETTA"
+  },
+  "SQUIRE_SWORD": {
+    "perUnit": 5000,
+    "npc": "ROSETTA"
+  },
+  "MERCENARY_HELMET": {
+    "perUnit": 35000,
+    "npc": "ROSETTA"
+  },
+  "MERCENARY_CHESTPLATE": {
+    "perUnit": 70000,
+    "npc": "ROSETTA"
+  },
+  "MERCENARY_LEGGINGS": {
+    "perUnit": 45000,
+    "npc": "ROSETTA"
+  },
+  "MERCENARY_BOOTS": {
+    "perUnit": 30000,
+    "npc": "ROSETTA"
+  },
+  "MERCENARY_AXE": {
+    "perUnit": 30000,
+    "npc": "ROSETTA"
+  },
+  "CELESTE_HELMET": {
+    "perUnit": 5000,
+    "npc": "ROSETTA"
+  },
+  "CELESTE_CHESTPLATE": {
+    "perUnit": 8000,
+    "npc": "ROSETTA"
+  },
+  "CELESTE_LEGGINGS": {
+    "perUnit": 7000,
+    "npc": "ROSETTA"
+  },
+  "CELESTE_BOOTS": {
+    "perUnit": 4000,
+    "npc": "ROSETTA"
+  },
+  "CELESTE_WAND": {
+    "perUnit": 5000,
+    "npc": "ROSETTA"
+  },
+  "STARLIGHT_HELMET": {
+    "perUnit": 35000,
+    "npc": "ROSETTA"
+  },
+  "STARLIGHT_CHESTPLATE": {
+    "perUnit": 70000,
+    "npc": "ROSETTA"
+  },
+  "STARLIGHT_LEGGINGS": {
+    "perUnit": 45000,
+    "npc": "ROSETTA"
+  },
+  "STARLIGHT_BOOTS": {
+    "perUnit": 30000,
+    "npc": "ROSETTA"
+  },
+  "STARLIGHT_WAND": {
+    "perUnit": 30000,
+    "npc": "ROSETTA"
+  },
+  "FORAGING_FORTUNE_BOOSTER": {
+    "perUnit": 50000,
+    "npc": "SAWYER"
+  },
+  "SNOW_SHOVEL": {
+    "perUnit": 2500,
+    "npc": "SCOOP"
+  },
+  "CHEAP_TUXEDO_CHESTPLATE": {
+    "perUnit": 1000000,
+    "npc": "SEYMOUR"
+  },
+  "CHEAP_TUXEDO_LEGGINGS": {
+    "perUnit": 1000000,
+    "npc": "SEYMOUR"
+  },
+  "CHEAP_TUXEDO_BOOTS": {
+    "perUnit": 1000000,
+    "npc": "SEYMOUR"
+  },
+  "FANCY_TUXEDO_CHESTPLATE": {
+    "perUnit": 6666666,
+    "npc": "SEYMOUR"
+  },
+  "FANCY_TUXEDO_LEGGINGS": {
+    "perUnit": 6666666,
+    "npc": "SEYMOUR"
+  },
+  "FANCY_TUXEDO_BOOTS": {
+    "perUnit": 6666666,
+    "npc": "SEYMOUR"
+  },
+  "ELEGANT_TUXEDO_CHESTPLATE": {
+    "perUnit": 24999999,
+    "npc": "SEYMOUR"
+  },
+  "ELEGANT_TUXEDO_LEGGINGS": {
+    "perUnit": 24999999,
+    "npc": "SEYMOUR"
+  },
+  "ELEGANT_TUXEDO_BOOTS": {
+    "perUnit": 24999999,
+    "npc": "SEYMOUR"
+  },
+  "FESTIVE_SINKER": {
+    "perUnit": 40000,
+    "npc": "SHERRY"
+  },
+  "ICE_BAIT": {
+    "perUnit": 12,
+    "npc": "SHERRY"
+  },
+  "BOTTLE_OF_JYRRE": {
+    "perUnit": 50000,
+    "npc": "SHERRY"
+  },
+  "FROSTY_SNOW_BALL": {
+    "perUnit": 75000,
+    "npc": "SHERRY"
+  },
+  "ICE": {
+    "perUnit": 1,
+    "npc": "SHERRY"
+  },
+  "PACKED_ICE": {
+    "perUnit": 9,
+    "npc": "SHERRY"
+  },
+  "LARGE_WINTER_SACK": {
+    "perUnit": 250000,
+    "npc": "SHERRY"
+  },
+  "MOIL_LOG": {
+    "perUnit": 50000,
+    "npc": "SMITHMONGER"
+  },
+  "DIRT_BOTTLE": {
+    "perUnit": 100000,
+    "npc": "SMITHMONGER"
+  },
+  "TOIL_LOG": {
+    "perUnit": 1000000,
+    "npc": "SMITHMONGER"
+  },
+  "REFINED_AMBER": {
+    "perUnit": 1000000,
+    "npc": "SMITHMONGER"
+  },
+  "BLESSED_FRUIT": {
+    "perUnit": 1000000,
+    "npc": "SMITHMONGER"
+  },
+  "SAM_SCYTHE": {
+    "perUnit": 2000,
+    "npc": "SKYMART"
+  },
+  "HYDRO_CAN_1000": {
+    "perUnit": 5000,
+    "npc": "SKYMART"
+  },
+  "PORTABLE_WASHER": {
+    "perUnit": 20000,
+    "npc": "SKYMART"
+  },
+  "SKYMART_VACUUM": {
+    "perUnit": 5000,
+    "npc": "SKYMART"
+  },
+  "TUTTI_FRUTTI_POISON": {
+    "perUnit": 850,
+    "npc": "SHIFTY"
+  },
+  "DR_PAPER": {
+    "perUnit": 3400,
+    "npc": "SHIFTY"
+  },
+  "SLAYER_ENERGY_DRINK": {
+    "perUnit": 8500,
+    "npc": "SHIFTY"
+  },
+  "ABIPHONE_X_PLUS": {
+    "perUnit": 500000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_X_PLUS_SPECIAL_EDITION": {
+    "perUnit": 500000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_XI_ULTRA": {
+    "perUnit": 500000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_XI_ULTRA_STYLE": {
+    "perUnit": 500000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_XII_MEGA": {
+    "perUnit": 1000000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_XII_MEGA_COLOR": {
+    "perUnit": 1000000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_XIII_PRO": {
+    "perUnit": 5000000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_XIII_PRO_GIGA": {
+    "perUnit": 5000000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_XIV_ENORMOUS_BLACK": {
+    "perUnit": 25000000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_XIV_ENORMOUS": {
+    "perUnit": 25000000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_XIV_ENORMOUS_PURPLE": {
+    "perUnit": 25000000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_FLIP_DRAGON": {
+    "perUnit": 50000000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_FLIP_NUCLEUS": {
+    "perUnit": 50000000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_FLIP_VOLCANO": {
+    "perUnit": 50000000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_FLIP_PLUS_LUNAR": {
+    "perUnit": 100000000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_FLIP_PLUS_FLOWER": {
+    "perUnit": 100000000,
+    "npc": "UDEL"
+  },
+  "ABIPHONE_FLIP_PLUS_CLOCKWORK": {
+    "perUnit": 100000000,
+    "npc": "UDEL"
+  },
+  "MYCEL": {
+    "perUnit": 20,
+    "npc": "ULYN"
+  },
+  "BOO_STONE": {
+    "perUnit": 10000,
+    "npc": "TYASHOI_ALCHEMIST"
+  },
+  "GREAT_SPOOK_POTION": {
+    "perUnit": 20000,
+    "npc": "TYASHOI_ALCHEMIST"
+  },
+  "REVIVE_STONE": {
+    "perUnit": 100000,
+    "npc": "WINONA"
+  },
+  "PET_ITEM_ALL_SKILLS_BOOST_COMMON": {
+    "perUnit": 50000,
+    "npc": "ZOG"
+  },
+  "PET_ITEM_FARMING_SKILL_BOOST_COMMON": {
+    "perUnit": 60000,
+    "npc": "ZOG"
+  },
+  "PET_ITEM_FISHING_SKILL_BOOST_COMMON": {
+    "perUnit": 60000,
+    "npc": "ZOG"
+  },
+  "PET_ITEM_FORAGING_SKILL_BOOST_COMMON": {
+    "perUnit": 60000,
+    "npc": "ZOG"
+  },
+  "PET_ITEM_MINING_SKILL_BOOST_COMMON": {
+    "perUnit": 60000,
+    "npc": "ZOG"
+  },
+  "PET_ITEM_COMBAT_SKILL_BOOST_COMMON": {
+    "perUnit": 60000,
+    "npc": "ZOG"
+  },
+  "PET_ITEM_MINING_SKILL_BOOST_UNCOMMON": {
+    "perUnit": 250000,
+    "npc": "ZOG"
+  },
+  "PET_ITEM_FARMING_SKILL_BOOST_RARE": {
+    "perUnit": 500000,
+    "npc": "ZOG"
+  },
+  "PET_ITEM_BIG_TEETH_COMMON": {
+    "perUnit": 750000,
+    "npc": "ZOG"
+  },
+  "PET_ITEM_IRON_CLAWS_COMMON": {
+    "perUnit": 750000,
+    "npc": "ZOG"
+  },
+  "PET_ITEM_HARDENED_SCALES_UNCOMMON": {
+    "perUnit": 1000000,
+    "npc": "ZOG"
+  },
+  "PET_ITEM_SHARPENED_CLAWS_UNCOMMON": {
+    "perUnit": 1000000,
+    "npc": "ZOG"
+  },
+  "PET_ITEM_BUBBLEGUM": {
+    "perUnit": 5000000,
+    "npc": "ZOG"
+  },
+  "GENERAL_MEDALLION": {
+    "perUnit": 1000000,
+    "npc": "ZODD"
+  },
+  "STAINED_CLAY-1": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_CLAY-2": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_CLAY-3": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_CLAY-4": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_CLAY-5": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_CLAY-6": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_CLAY-7": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_CLAY-8": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_CLAY-9": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_CLAY-10": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_CLAY-11": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_CLAY-12": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_CLAY-13": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_CLAY-14": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_CLAY-15": {
+    "perUnit": 8,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-1": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-2": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-3": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-4": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-5": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-6": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-7": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-8": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-9": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-10": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-11": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-12": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-13": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-14": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS_PANE-15": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-1": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-2": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-3": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-4": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-5": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-6": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-7": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-8": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-9": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-10": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-11": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-12": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-13": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-14": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "STAINED_GLASS-15": {
+    "perUnit": 16,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-1": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-2": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-3": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-4": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-5": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-6": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-7": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-8": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-9": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-10": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-11": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-12": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-13": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-14": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "CARPET-15": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-1": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-2": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-3": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-4": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-5": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-6": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-7": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-8": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-9": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-10": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-11": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-12": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-13": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-14": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "WOOL-15": {
+    "perUnit": 32,
+    "npc": "WOOL_WEAVER"
+  },
+  "UNDEAD_SWORD": {
+    "perUnit": 100,
+    "npc": "WEAPONSMITH"
+  },
+  "END_SWORD": {
+    "perUnit": 150,
+    "npc": "WEAPONSMITH"
+  },
+  "SPIDER_SWORD": {
+    "perUnit": 100,
+    "npc": "WEAPONSMITH"
+  },
+  "ROGUE_SWORD": {
+    "perUnit": 100,
+    "npc": "WEAPONSMITH"
+  },
+  "BOW": {
+    "perUnit": 25,
+    "npc": "WEAPONSMITH"
+  },
+  "WITHER_BOW": {
+    "perUnit": 250,
+    "npc": "WEAPONSMITH"
+  },
+  "ARTISANAL_SHORTBOW": {
+    "perUnit": 600,
+    "npc": "WEAPONSMITH"
+  }
+}
