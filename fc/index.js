@@ -1,8 +1,9 @@
-// 阿里云函数计算（FC）入口
-// 必须在本文件 require server/index 之前设置 IS_FC，用于跳过本地 app.listen 和定时任务
+// 阿里云函数计算（FC）HTTP 函数入口
+// HTTP 函数的 handler 签名是 (req, res, context)，req/res 是 Node 兼容对象
 process.env.IS_FC = '1';
 
-const serverless = require('serverless-http');
 const app = require('../server/index');
 
-exports.handler = serverless(app);
+exports.handler = (req, res) => {
+  app(req, res);
+};
