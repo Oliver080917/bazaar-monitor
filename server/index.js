@@ -381,8 +381,8 @@ app.post('/api/save-history', async (req, res) => {
 });
 
 // Start background task to save history periodically
-// (skipped on Vercel: serverless has no long-running process and the filesystem is read-only)
-if (!process.env.VERCEL) setInterval(async () => {
+// (skipped on serverless platforms: no long-running process and read-only filesystem)
+if (!process.env.VERCEL && !process.env.IS_FC) setInterval(async () => {
   try {
     const products = await fetchBazaarData();
     // Save a sample of popular products to history
@@ -413,8 +413,8 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
-// Start server (skipped on Vercel — the platform calls the exported app directly)
-if (!process.env.VERCEL) {
+// Start server (skipped on serverless platforms — the platform calls the exported app directly)
+if (!process.env.VERCEL && !process.env.IS_FC) {
   app.listen(PORT, () => {
     console.log(`
 ╔═══════════════════════════════════════════════════╗
