@@ -319,85 +319,93 @@ main {
   font-weight: 500;
 }
 
-/* 倒卖机会 */
-.flips-list {
-  margin-bottom: 1.5rem;
+/* 右侧倒卖排行榜 */
+.right-panel {
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border-color);
+  padding: 1rem;
+  overflow-y: auto;
 }
 
-.flips-list h3 {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
+.leaderboard h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
   margin-bottom: 0.75rem;
-}
-
-.flips-list .flips-toggle {
-  cursor: pointer;
-  user-select: none;
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  transition: color 0.2s;
 }
 
-.flips-list .flips-toggle:hover {
-  color: var(--text-primary);
-}
-
-.flips-list .flips-caret {
-  font-size: 0.7rem;
-  transition: transform 0.2s;
-}
-
-.flips-list.open .flips-caret {
-  transform: rotate(90deg);
-}
-
-.flips-list .flips-count {
+.leaderboard .flips-count {
   color: var(--accent);
   font-weight: 600;
+  font-size: 0.75rem;
 }
 
-.flips-list ul {
+.leaderboard ol {
   list-style: none;
 }
 
-.flips-list li {
-  padding: 0.5rem 0.75rem;
+.leaderboard li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.6rem;
   background: var(--bg-tertiary);
   border-radius: 6px;
   margin-bottom: 0.35rem;
   font-size: 0.75rem;
   cursor: pointer;
   transition: all 0.2s;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
 }
 
-.flips-list li:hover {
+.leaderboard li:hover {
   background: var(--border-color);
 }
 
-.flips-list .flip-name {
+.leaderboard .flip-rank {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leaderboard li:nth-child(1) .flip-rank { background: #ffd700; color: #000; }
+.leaderboard li:nth-child(2) .flip-rank { background: #c0c0c0; color: #000; }
+.leaderboard li:nth-child(3) .flip-rank { background: #cd7f32; color: #000; }
+
+.leaderboard .flip-name {
+  flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.flips-list .flip-profit {
+.leaderboard .flip-profit {
   color: var(--sell-color);
   font-weight: 600;
   white-space: nowrap;
 }
 
-.flips-list .flip-profit em {
+.leaderboard .flip-profit em {
   font-style: normal;
   font-size: 0.65rem;
   color: var(--text-muted);
   font-weight: 400;
+}
+
+.leaderboard .flip-empty {
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: default;
 }
 
 .favorites-list h3 {
@@ -605,13 +613,25 @@ main {
   to { transform: rotate(360deg); }
 }
 
-/* Detail Panel */
+/* Detail Panel (覆盖式浮层，滑出盖在右侧排行榜上) */
 .detail-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: min(380px, 100vw);
+  z-index: 200;
   background: var(--bg-secondary);
   border-left: 1px solid var(--border-color);
   padding: 1.5rem;
   overflow-y: auto;
-  position: relative;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.detail-panel.active {
+  transform: translateX(0);
 }
 
 .close-btn {
@@ -798,22 +818,7 @@ main {
 /* Responsive */
 @media (max-width: 1200px) {
   main {
-    grid-template-columns: 240px 1fr;
-  }
-
-  .detail-panel {
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 380px;
-    z-index: 200;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-  }
-
-  .detail-panel.active {
-    transform: translateX(0);
+    grid-template-columns: 240px 1fr 320px;
   }
 }
 
@@ -822,7 +827,8 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .sidebar {
+  .sidebar,
+  .right-panel {
     display: none;
   }
 

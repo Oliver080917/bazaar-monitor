@@ -98,10 +98,8 @@ const elements = {
   statusText: document.getElementById('statusText'),
   lastUpdated: document.getElementById('lastUpdated'),
   categoryList: document.getElementById('categoryList'),
-  flipsList: document.getElementById('flipsList'),
-  flipsListSection: document.getElementById('flipsListSection'),
-  flipsCount: document.getElementById('flipsCount'),
-  flipsToggle: document.getElementById('flipsToggle')
+  flipLeaderboard: document.getElementById('flipLeaderboard'),
+  flipsCount: document.getElementById('flipsCount')
 };
 
 // Initialize
@@ -128,14 +126,6 @@ function bindEvents() {
   // 分类点击事件
   if (elements.categoryList) {
     elements.categoryList.addEventListener('click', handleCategoryClick);
-  }
-
-  // 倒卖机会展开/收起
-  if (elements.flipsToggle) {
-    elements.flipsToggle.addEventListener('click', () => {
-      const expanded = elements.flipsListSection.classList.toggle('open');
-      elements.flipsList.style.display = expanded ? 'block' : 'none';
-    });
   }
 
   // 价格图表：双击放大到页面中间，再次双击恢复全图（手动控制 x 轴范围）
@@ -488,7 +478,7 @@ function renderFavorites() {
   });
 }
 
-// 倒卖机会：NPC 价 < bazaar 买入价（挂卖能收到的钱）即有利可图
+// 倒卖排行榜：NPC 价 < bazaar 买入价（挂卖能收到的钱）即有利可图，按单件利润排序
 function renderFlips() {
   const flips = products
     .filter(p => p.npcBuyPrice != null && p.buyPrice > 0 && p.buyPrice > p.npcBuyPrice && p.buyVolume >= 1000)
@@ -502,18 +492,19 @@ function renderFlips() {
   elements.flipsCount.textContent = flips.length ? `(${flips.length})` : '';
 
   if (flips.length === 0) {
-    elements.flipsList.innerHTML = '<li style="color: var(--text-muted); font-size: 0.75rem;">暂无倒卖机会</li>';
+    elements.flipLeaderboard.innerHTML = '<li class="flip-empty">暂无倒卖机会</li>';
     return;
   }
 
-  elements.flipsList.innerHTML = flips.map(({ product, profit, margin }) => `
+  elements.flipLeaderboard.innerHTML = flips.map(({ product, profit, margin }, i) => `
     <li data-id="${product.id}" title="${product.name} · 从 ${product.npcSource} 进货，bazaar 卖出赚 ${formatPrice(profit)}">
+      <span class="flip-rank">${i + 1}</span>
       <span class="flip-name">${product.name}</span>
       <span class="flip-profit">+${formatPrice(profit)} <em>${Math.round(margin * 100)}%</em></span>
     </li>
   `).join('');
 
-  elements.flipsList.querySelectorAll('li').forEach(li => {
+  elements.flipLeaderboard.querySelectorAll('li').forEach(li => {
     li.addEventListener('click', () => loadProductDetail(li.dataset.id));
   });
 }
