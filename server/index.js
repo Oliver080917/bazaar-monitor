@@ -7,7 +7,8 @@ const dataStore = require('./dataStore');
 const npcPrices = require('../data/npc-prices.json');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+// FC_SERVER_PORT 由阿里云 FC 自定义运行时注入，Express 监听该端口接收平台转发来的请求
+const PORT = process.env.FC_SERVER_PORT || process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
