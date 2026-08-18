@@ -381,7 +381,8 @@ app.post('/api/save-history', async (req, res) => {
 });
 
 // Start background task to save history periodically
-setInterval(async () => {
+// (skipped on Vercel: serverless has no long-running process and the filesystem is read-only)
+if (!process.env.VERCEL) setInterval(async () => {
   try {
     const products = await fetchBazaarData();
     // Save a sample of popular products to history
@@ -412,9 +413,10 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`
+// Start server (skipped on Vercel — the platform calls the exported app directly)
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`
 ╔═══════════════════════════════════════════════════╗
 ║     Skyblock Bazaar Monitor                       ║
 ║     Running on http://localhost:${PORT}               ║
@@ -432,6 +434,7 @@ ${USE_MOCK_DATA ? `
   ✅ Connected to Hypixel API
 `}
   `);
-});
+  });
+}
 
 module.exports = app;
