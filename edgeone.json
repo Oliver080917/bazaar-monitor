@@ -1,0 +1,6 @@
+{
+  "buildCommand": "echo done",
+  "outputDirectory": "./public",
+  "nodeVersion": "20.18.0",
+  "mainlandRegions": ["ap-guangzhou"]
+}
