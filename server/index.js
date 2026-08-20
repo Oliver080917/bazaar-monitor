@@ -13,6 +13,16 @@ const PORT = process.env.FC_SERVER_PORT || process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// EdgeOne Makers 云函数把 /api/* 转发给函数时剥离 /api 前缀（函数内 req.url 为 /status 等），
+// 这里补回前缀，让下方 /api/xxx 路由能正常匹配
+if (process.env.IS_FC) {
+  app.use((req, res, next) => {
+    if (!req.url.startsWith('/api')) req.url = '/api' + req.url;
+    next();
+  });
+}
+
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Configuration - API Key should be set via environment variable
