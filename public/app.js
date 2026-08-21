@@ -1,6 +1,6 @@
 // Skyblock Bazaar Monitor - Frontend Application
 
-const API_BASE = '';
+const API_BASE = (typeof window !== 'undefined' && window.API_BASE) || '';
 
 // Config
 const ITEMS_PER_PAGE = 50; // 每页显示数量
