@@ -50,6 +50,7 @@ function formatProduct(productId, product) {
     sellVolume: quickStatus.sellVolume || 0,
     npcBuyPrice: npc ? npc.perUnit : null,
     npcSource: npc ? npc.npc : null,
+    recipe: recipes[productId] || null,
     history: product.history || []
   };
 }

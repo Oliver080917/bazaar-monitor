@@ -5,6 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const dataStore = require('./dataStore');
 const npcPrices = require('../data/npc-prices.json');
+const recipes = require('../data/recipes.json');
 
 const app = express();
 // FC_SERVER_PORT 由阿里云 FC 自定义运行时注入，Express 监听该端口接收平台转发来的请求
@@ -53,6 +54,7 @@ function formatProduct(productId, product) {
     sellVolume: quickStatus.sellVolume || 0,
     npcBuyPrice: npc ? npc.perUnit : null,
     npcSource: npc ? npc.npc : null,
+    recipe: recipes[productId] || null,
     history: product.history || []
   };
 }

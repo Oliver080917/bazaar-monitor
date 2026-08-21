@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bazzar实时查看</title>
-  <link rel="stylesheet" href="styles.css?v=1007">
+  <link rel="stylesheet" href="styles.css?v=1014">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,8 +31,14 @@
     </div>
   </header>
 
-  <main>
+  <main data-tab="products" data-view="products">
     <aside class="sidebar">
+      <div class="sidebar-tabs">
+        <button class="sidebar-tab active" data-sidetab="categories">📦 分类</button>
+        <button class="sidebar-tab" data-sidetab="flips">💰 倒卖</button>
+      </div>
+
+      <div class="sidebar-pane active" data-pane="categories">
       <div class="search-box">
         <input type="text" id="searchInput" placeholder="搜索物品..." autocomplete="off">
       </div>
@@ -62,7 +68,7 @@
             <ul class="subcategory-list" data-parent="combat" style="display: none;"></ul>
           </li>
           <li class="category-item" data-category="woods_fishes">
-            <span class="category-label"><span class="category-icon">🪵</span> Woods & Fishes</span>
+            <span class="category-label"><span class="category-icon">🌲</span> Woods & Fishes</span>
             <ul class="subcategory-list" data-parent="woods_fishes" style="display: none;"></ul>
           </li>
           <li class="category-item" data-category="oddities">
@@ -76,23 +82,49 @@
         <h3>⭐ 收藏夹</h3>
         <ul id="favoritesList"></ul>
       </div>
+      </div>
     </aside>
 
     <section class="content">
-      <div class="product-grid" id="productGrid">
-        <div class="loading" id="loading">
-          <div class="spinner"></div>
-          <p>正在加载 Bazzar 数据...</p>
+      <div class="products-view" id="productsView">
+        <div class="search-box mobile-search">
+          <input type="text" id="searchInputMobile" placeholder="搜索物品..." autocomplete="off">
+        </div>
+        <div id="mobileCategories" class="mobile-categories"></div>
+        <div class="product-grid" id="productGrid">
+          <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>正在加载 Bazzar 数据...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flips-view" id="flipsView">
+        <div class="flip-subtabs">
+          <button class="flip-subtab active" data-fliptab="npc">NPC 倒卖</button>
+          <button class="flip-subtab" data-fliptab="craft">合成倒卖</button>
+        </div>
+        <div class="flip-toolbar">
+          <input type="text" id="flipSearchInput" class="flip-search" placeholder="搜索物品..." autocomplete="off">
+          <label class="flip-highvol">
+            <input type="checkbox" id="flipHighVolumeOnly">
+            <span>高成交量</span>
+          </label>
+        </div>
+        <div class="npc-flips-pane active">
+          <div class="leaderboard">
+            <h3>💰 倒卖排行榜 <span id="flipsCount" class="flips-count"></span></h3>
+            <ol id="flipLeaderboard"></ol>
+          </div>
+        </div>
+        <div class="craft-flips-pane">
+          <div class="leaderboard">
+            <h3>🛠️ 合成倒卖 <span id="craftFlipsCount" class="flips-count"></span></h3>
+            <ol id="craftFlipLeaderboard"></ol>
+          </div>
         </div>
       </div>
     </section>
-
-    <aside class="right-panel">
-      <div class="leaderboard">
-        <h3>💰 倒卖排行榜 <span id="flipsCount" class="flips-count"></span></h3>
-        <ol id="flipLeaderboard"></ol>
-      </div>
-    </aside>
 
     <aside class="detail-panel" id="detailPanel">
       <button class="close-btn" id="closeDetail">×</button>
@@ -142,6 +174,12 @@
     </aside>
   </main>
 
+  <nav class="mobile-tabbar" id="mobileTabbar">
+    <button class="tab-btn active" data-tab="products">🛒 商品</button>
+    <button class="tab-btn" data-tab="filters">🔍 筛选</button>
+    <button class="tab-btn" data-tab="flips">💰 倒卖</button>
+  </nav>
+
   <!-- Export Modal -->
   <div class="modal" id="exportModal">
     <div class="modal-content">
@@ -155,6 +193,6 @@
     </div>
   </div>
 
-  <script src="app.js?v=1008"></script>
+  <script src="app.js?v=1021"></script>
 </body>
 </html>

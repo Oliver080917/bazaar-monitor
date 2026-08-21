@@ -13,6 +13,12 @@ let selectedProduct = null;
 let priceChart = null;
 let currentCategory = 'all'; // 当前选中的分类
 let currentSubcategory = null; // 当前选中的子分类
+let currentQuery = ''; // 当前搜索词（桌面/移动两个搜索框共用）
+
+// 排行榜筛选状态
+let flipSearchQuery = '';
+let flipHighVolumeOnly = false;
+const HIGH_VOLUME_THRESHOLD = 10000; // 高成交量：商品买卖量与材料买入量都 ≥ 此值
 
 // 分类映射 - 基于真实商品 ID 的精确映射（每个商品只属于一个子分类）
 const CATEGORY_MAP = {
@@ -84,6 +90,15 @@ const CATEGORY_MAP = {
   }
 };
 
+// 主分类图标（移动端分类栏用，与侧边栏一致）
+const CATEGORY_ICONS = {
+  farming: '🌾',
+  mining: '⛏️',
+  combat: '⚔️',
+  woods_fishes: '🌲',
+  oddities: '🔮'
+};
+
 // DOM Elements
 const elements = {
   productGrid: document.getElementById('productGrid'),
@@ -99,7 +114,15 @@ const elements = {
   lastUpdated: document.getElementById('lastUpdated'),
   categoryList: document.getElementById('categoryList'),
   flipLeaderboard: document.getElementById('flipLeaderboard'),
-  flipsCount: document.getElementById('flipsCount')
+  flipsCount: document.getElementById('flipsCount'),
+  craftFlipLeaderboard: document.getElementById('craftFlipLeaderboard'),
+  craftFlipsCount: document.getElementById('craftFlipsCount'),
+  flipsView: document.getElementById('flipsView'),
+  flipSearchInput: document.getElementById('flipSearchInput'),
+  flipHighVolumeOnly: document.getElementById('flipHighVolumeOnly'),
+  searchInputMobile: document.getElementById('searchInputMobile'),
+  mobileCategories: document.getElementById('mobileCategories'),
+  tabbar: document.getElementById('mobileTabbar')
 };
 
 // Initialize
@@ -107,6 +130,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
   bindEvents();
+  renderMobileCategories();
   await checkStatus();
   await loadProducts();
   await loadFavorites();
@@ -115,6 +139,7 @@ async function init() {
 
 function bindEvents() {
   elements.searchInput.addEventListener('input', debounce(handleSearch, 300));
+  elements.searchInputMobile.addEventListener('input', debounce(handleSearch, 300));
   elements.showFavoritesOnly.addEventListener('change', handleFilterChange);
   elements.refreshBtn.addEventListener('click', refreshData);
   elements.closeDetail.addEventListener('click', closeDetailPanel);
@@ -126,6 +151,31 @@ function bindEvents() {
   // 分类点击事件
   if (elements.categoryList) {
     elements.categoryList.addEventListener('click', handleCategoryClick);
+  }
+
+  // 移动端底部标签栏切换
+  if (elements.tabbar) {
+    elements.tabbar.addEventListener('click', handleTabClick);
+  }
+
+  // 侧边栏 分类/倒卖 切换
+  const sidebarTabs = document.querySelector('.sidebar-tabs');
+  if (sidebarTabs) {
+    sidebarTabs.addEventListener('click', handleSidebarTabClick);
+  }
+
+  // 倒卖页子标签（NPC 倒卖 / 合成倒卖）
+  if (elements.flipsView) {
+    elements.flipsView.addEventListener('click', handleFlipSubtabClick);
+  }
+
+  // 排行榜搜索 + 高成交量筛选
+  elements.flipSearchInput.addEventListener('input', debounce(handleFlipSearch, 200));
+  elements.flipHighVolumeOnly.addEventListener('change', handleFlipFilterChange);
+
+  // 移动端分类栏点击（商品上方）
+  if (elements.mobileCategories) {
+    elements.mobileCategories.addEventListener('click', handleMobileCategoryClick);
   }
 
   // 价格图表：双击放大到页面中间，再次双击恢复全图（手动控制 x 轴范围）
@@ -176,8 +226,8 @@ function handleCategoryClick(e) {
     currentCategory = 'all';
     currentSubcategory = null;
 
-    const query = elements.searchInput.value.toLowerCase();
-    filterProducts(query, elements.showFavoritesOnly.checked);
+    filterProducts(currentQuery, elements.showFavoritesOnly.checked);
+    renderMobileCategories();
     return;
   }
 
@@ -201,8 +251,8 @@ function handleCategoryClick(e) {
 
     currentSubcategory = subcategory;
 
-    const query = elements.searchInput.value.toLowerCase();
-    filterProducts(query, elements.showFavoritesOnly.checked);
+    filterProducts(currentQuery, elements.showFavoritesOnly.checked);
+    renderMobileCategories();
     return;
   }
 
@@ -244,8 +294,120 @@ function handleCategoryClick(e) {
   currentCategory = category;
   currentSubcategory = null; // 重置子分类，显示该分类下的所有物品
 
-  const query = elements.searchInput.value.toLowerCase();
-  filterProducts(query, elements.showFavoritesOnly.checked);
+  filterProducts(currentQuery, elements.showFavoritesOnly.checked);
+  renderMobileCategories();
+}
+
+// 移动端底部标签栏切换
+function handleTabClick(e) {
+  const btn = e.target.closest('.tab-btn');
+  if (!btn) return;
+
+  const tab = btn.dataset.tab;
+  const main = document.querySelector('main');
+  if (main) {
+    main.dataset.tab = tab;
+    main.dataset.view = (tab === 'flips') ? 'flips' : 'products';
+  }
+
+  elements.tabbar.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.toggle('active', b === btn);
+  });
+}
+
+// 侧边栏 分类/倒卖 切换：控制右侧大页面显示商品页还是倒卖榜
+function handleSidebarTabClick(e) {
+  const btn = e.target.closest('.sidebar-tab');
+  if (!btn) return;
+
+  document.querySelectorAll('.sidebar-tab').forEach(b => {
+    b.classList.toggle('active', b === btn);
+  });
+
+  const main = document.querySelector('main');
+  if (main) {
+    main.dataset.view = (btn.dataset.sidetab === 'flips') ? 'flips' : 'products';
+  }
+}
+
+// 移动端分类栏（商品上方）：渲染主分类 + 子分类 chip，状态与侧边栏共用 currentCategory/currentSubcategory
+function renderMobileCategories() {
+  if (!elements.mobileCategories) return;
+
+  let html = '<div class="mobile-cat-row">';
+  html += `<button class="mobile-cat-chip ${currentCategory === 'all' ? 'active' : ''}" data-cat="all">全部</button>`;
+  for (const [key, data] of Object.entries(CATEGORY_MAP)) {
+    const icon = CATEGORY_ICONS[key] ? CATEGORY_ICONS[key] + ' ' : '';
+    const active = currentCategory === key;
+    html += `<button class="mobile-cat-chip ${active ? 'active' : ''}" data-cat="${key}">${icon}${data.name}</button>`;
+  }
+  html += '</div>';
+
+  const catData = currentCategory !== 'all' ? CATEGORY_MAP[currentCategory] : null;
+  if (catData && catData.subcategories) {
+    html += '<div class="mobile-cat-row mobile-sub-row">';
+    for (const [key, sub] of getSortedSubcategories(catData)) {
+      const active = currentSubcategory === key;
+      html += `<button class="mobile-cat-chip ${active ? 'active' : ''}" data-cat="${currentCategory}" data-sub="${key}">${sub.name}</button>`;
+    }
+    html += '</div>';
+  }
+
+  elements.mobileCategories.innerHTML = html;
+}
+
+// 移动端分类 chip 点击
+function handleMobileCategoryClick(e) {
+  const chip = e.target.closest('.mobile-cat-chip');
+  if (!chip) return;
+
+  if (chip.dataset.sub) {
+    currentSubcategory = chip.dataset.sub;
+  } else if (chip.dataset.cat === 'all') {
+    currentCategory = 'all';
+    currentSubcategory = null;
+  } else {
+    currentCategory = chip.dataset.cat;
+    currentSubcategory = null;
+  }
+
+  filterProducts(currentQuery, elements.showFavoritesOnly.checked);
+  renderMobileCategories();
+  syncSidebarActive();
+}
+
+// 让侧边栏（筛选 tab）的选中态与移动端分类栏保持一致
+function syncSidebarActive() {
+  document.querySelectorAll('.category-item').forEach(el => {
+    el.classList.remove('active', 'expanded');
+  });
+  document.querySelectorAll('.subcategory-item').forEach(el => {
+    el.classList.remove('active');
+  });
+  document.querySelectorAll('.subcategory-list').forEach(el => {
+    el.style.display = 'none';
+  });
+
+  if (currentCategory === 'all' || !elements.categoryList) return;
+
+  const item = elements.categoryList.querySelector(`.category-item[data-category="${currentCategory}"]`);
+  if (!item) return;
+  item.classList.add('active', 'expanded');
+  const subList = item.querySelector('.subcategory-list');
+  if (subList) {
+    if (subList.children.length === 0) renderSubcategories(currentCategory, subList);
+    subList.style.display = 'block';
+    if (currentSubcategory) {
+      const sub = subList.querySelector(`.subcategory-item[data-subcategory="${currentSubcategory}"]`);
+      if (sub) sub.classList.add('active');
+    }
+  }
+}
+
+// 子分类按名称首字母排序（桌面侧边栏与移动端 chip 共用）
+function getSortedSubcategories(categoryData) {
+  return Object.entries(categoryData.subcategories)
+    .sort((a, b) => a[1].name.localeCompare(b[1].name));
 }
 
 // 渲染子分类
@@ -255,11 +417,10 @@ function renderSubcategories(category, container) {
     return;
   }
 
-  const subcategories = categoryData.subcategories;
   // 默认不选中任何子分类，显示该分类下的所有物品
   let html = '';
 
-  for (const [key, data] of Object.entries(subcategories)) {
+  for (const [key, data] of getSortedSubcategories(categoryData)) {
     html += `<li class="subcategory-item" data-subcategory="${key}">${data.name}</li>`;
   }
 
@@ -298,6 +459,7 @@ async function loadProducts() {
       renderProducts();
       renderPagination();
       renderFlips();
+      renderCraftFlips();
       updateLastUpdated(data.lastUpdated);
     } else {
       showError(data.error || '加载商品失败');
@@ -441,9 +603,15 @@ window.goToPage = function(page) {
   currentPage = page;
   renderProducts();
   renderPagination();
-  // 滚动到顶部
-  elements.productGrid.scrollTop = 0;
+  scrollProductsToTop();
 };
+
+// 回到商品列表顶部：筛选/翻页后内容变短，浏览器会把滚动位置钳到新内容底部（表现为滚动条自己跳），这里主动重置
+function scrollProductsToTop() {
+  const scroller = elements.productGrid.closest('.content');
+  if (scroller) scroller.scrollTop = 0;
+  window.scrollTo(0, 0);
+}
 
 function renderFavorites() {
   if (favorites.length === 0) {
@@ -480,7 +648,7 @@ function renderFavorites() {
 
 // 倒卖排行榜：NPC 价 < bazaar 买入价（挂卖能收到的钱）即有利可图，按单件利润排序
 function renderFlips() {
-  const flips = products
+  const all = products
     .filter(p => p.npcBuyPrice != null && p.buyPrice > 0 && p.buyPrice > p.npcBuyPrice && p.buyVolume >= 1000)
     .map(p => ({
       product: p,
@@ -489,10 +657,14 @@ function renderFlips() {
     }))
     .sort((a, b) => b.profit - a.profit);
 
+  let flips = all;
+  if (flipHighVolumeOnly) flips = flips.filter(f => isHighVolumeProduct(f.product));
+  flips = filterFlipsBySearch(flips);
+
   elements.flipsCount.textContent = flips.length ? `(${flips.length})` : '';
 
   if (flips.length === 0) {
-    elements.flipLeaderboard.innerHTML = '<li class="flip-empty">暂无倒卖机会</li>';
+    elements.flipLeaderboard.innerHTML = `<li class="flip-empty">${all.length === 0 ? '暂无倒卖机会' : '没有匹配的倒卖机会'}</li>`;
     return;
   }
 
@@ -507,6 +679,116 @@ function renderFlips() {
   elements.flipLeaderboard.querySelectorAll('li').forEach(li => {
     li.addEventListener('click', () => loadProductDetail(li.dataset.id));
   });
+}
+
+// 合成倒卖榜：低价(sellPrice)买 Bazaar 材料 → 合成 → 高价(buyPrice)卖回。成本=Σ材料sellPrice×数量，收入=成品buyPrice×产出数，利润>0 才上榜
+function renderCraftFlips() {
+  const productById = new Map(products.map(p => [p.id, p]));
+  const flips = [];
+
+  for (const p of products) {
+    if (!p.recipe || !p.recipe.recipes || !p.buyPrice) continue;
+
+    let best = null;
+    for (const variant of p.recipe.recipes) {
+      let cost = 0;
+      let ok = true;
+      for (const ing of variant.ingredients) {
+        const mat = productById.get(ing.id);
+        if (!mat || !mat.sellPrice) { ok = false; break; }
+        cost += ing.count * mat.sellPrice;
+      }
+      if (!ok) continue;
+
+      const revenue = variant.count * p.buyPrice;
+      const profit = revenue - cost;
+      if (!best || profit > best.profit) best = { profit, cost, ingredients: variant.ingredients };
+    }
+
+    if (best && best.profit > 0) {
+      flips.push({
+        product: p,
+        profit: best.profit,
+        margin: best.cost > 0 ? best.profit / best.cost : 0,
+        cost: best.cost,
+        ingredients: best.ingredients
+      });
+    }
+  }
+
+  const all = flips.sort((a, b) => b.profit - a.profit);
+  let list = all;
+  if (flipHighVolumeOnly) {
+    list = list.filter(f => {
+      if (!isHighVolumeProduct(f.product)) return false;
+      return f.ingredients.every(ing => {
+        const mat = productById.get(ing.id);
+        return mat && (mat.buyVolume || 0) >= HIGH_VOLUME_THRESHOLD;
+      });
+    });
+  }
+  list = filterFlipsBySearch(list);
+
+  elements.craftFlipsCount.textContent = list.length ? `(${list.length})` : '';
+
+  if (list.length === 0) {
+    elements.craftFlipLeaderboard.innerHTML = `<li class="flip-empty">${all.length === 0 ? '暂无合成倒卖机会' : '没有匹配的合成倒卖机会'}</li>`;
+    return;
+  }
+
+  elements.craftFlipLeaderboard.innerHTML = list.map(({ product, profit, margin, cost }, i) => `
+    <li data-id="${product.id}" title="${product.name} · 材料成本 ${formatPrice(cost)}，卖出赚 ${formatPrice(profit)}">
+      <span class="flip-rank">${i + 1}</span>
+      <span class="flip-name">${product.name}</span>
+      <span class="flip-profit">+${formatPrice(profit)} <em>${Math.round(margin * 100)}%</em></span>
+    </li>
+  `).join('');
+
+  elements.craftFlipLeaderboard.querySelectorAll('li').forEach(li => {
+    li.addEventListener('click', () => loadProductDetail(li.dataset.id));
+  });
+}
+
+// 高成交量：商品买卖量与材料买入量都 ≥ 阈值
+function isHighVolumeProduct(p) {
+  return (p.buyVolume || 0) >= HIGH_VOLUME_THRESHOLD && (p.sellVolume || 0) >= HIGH_VOLUME_THRESHOLD;
+}
+
+// 排行榜按搜索词过滤（商品名或 ID）
+function filterFlipsBySearch(list) {
+  if (!flipSearchQuery) return list;
+  return list.filter(f => {
+    const name = f.product.name.toLowerCase();
+    const id = f.product.id.toLowerCase();
+    return name.includes(flipSearchQuery) || id.includes(flipSearchQuery);
+  });
+}
+
+function handleFlipSearch() {
+  flipSearchQuery = elements.flipSearchInput.value.toLowerCase();
+  renderFlips();
+  renderCraftFlips();
+}
+
+function handleFlipFilterChange() {
+  flipHighVolumeOnly = elements.flipHighVolumeOnly.checked;
+  renderFlips();
+  renderCraftFlips();
+}
+
+// 倒卖页子标签切换（NPC 倒卖 / 合成倒卖）
+function handleFlipSubtabClick(e) {
+  const btn = e.target.closest('.flip-subtab');
+  if (!btn) return;
+
+  const isCraft = btn.dataset.fliptab === 'craft';
+  document.querySelectorAll('.flip-subtab').forEach(b => {
+    b.classList.toggle('active', b === btn);
+  });
+  const view = elements.flipsView;
+  if (!view) return;
+  view.querySelector('.npc-flips-pane').classList.toggle('active', !isCraft);
+  view.querySelector('.craft-flips-pane').classList.toggle('active', isCraft);
 }
 
 function renderProductDetail(product) {
@@ -676,13 +958,12 @@ function renderPriceChart(product) {
 
 // Event Handlers
 function handleSearch(e) {
-  const query = e.target.value.toLowerCase();
-  filterProducts(query, elements.showFavoritesOnly.checked);
+  currentQuery = e.target.value.toLowerCase();
+  filterProducts(currentQuery, elements.showFavoritesOnly.checked);
 }
 
 function handleFilterChange() {
-  const query = elements.searchInput.value.toLowerCase();
-  filterProducts(query, elements.showFavoritesOnly.checked);
+  filterProducts(currentQuery, elements.showFavoritesOnly.checked);
 }
 
 function filterProducts(query, favoritesOnly) {
@@ -724,6 +1005,7 @@ function filterProducts(query, favoritesOnly) {
   currentPage = 1;
   renderProducts();
   renderPagination();
+  scrollProductsToTop();
 }
 
 async function refreshData() {
@@ -816,7 +1098,8 @@ function formatPrice(price) {
   if (!price || price === 0) return '-';
   if (price >= 1000000) return `${(price / 1000000).toFixed(2)}M`;
   if (price >= 1000) return `${(price / 1000).toFixed(1)}k`;
-  return price.toString();
+  // 小于 1000 的金额最多保留 2 位小数，并去掉末尾多余的 0
+  return (Math.round(price * 100) / 100).toString();
 }
 
 function formatNumber(num) {
