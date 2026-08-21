@@ -6,4 +6,4 @@
 //
 // ⚠️ 重要：如果前端放在 https 的 GitHub Pages 上，后端必须是 https，
 //    否则浏览器会拦截「混合内容」请求（https 页面请求 http 接口）。
-window.API_BASE = '';
+window.API_BASE = 'https://api.sbhypixel.net';
