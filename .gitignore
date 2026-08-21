@@ -15,3 +15,6 @@ bazaar-fc.zip
 
 # Optional: ignore package-lock if you prefer yarn
 # package-lock.json
+
+# EdgeOne 函数运行时数据（本地测试可能生成）
+cloud-functions/data/
